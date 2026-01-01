@@ -1,0 +1,11 @@
+# root/App/docker-compose.yml
+version: "3.8"
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - ./media:/vol/web/media
+    ports:
+      - "8000:8000"

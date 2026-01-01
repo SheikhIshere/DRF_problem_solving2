@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: .
+    container_name: School_lms
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./App:/app
+    depends_on:
+      - db
+    working_dir: /app
+    command: python manage.py runserver 0.0.0.0:8000
+
+db:
+  image: postgres:15
+  container_name: school_lms_db
+  environment:
+    POSTGRES_DB: lms_db
+    POSTGRES_USER: lms_user
+    POSTGRES_PASSWORD: lms_password
+  volumes:
+    - db_data:/var/lib/postgresql/data
+  ports:
+    - "5432:5432"
+
+volumes:
+  db_data:
