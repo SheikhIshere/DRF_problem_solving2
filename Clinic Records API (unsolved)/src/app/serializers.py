@@ -6,7 +6,9 @@ from .models import Patient, MedicalHistory, DoctorNote
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_staff']
+        # fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_staff']
+        # FIX: for security never use admin stuff for user
+        fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
 
 class PatientSerializer(serializers.ModelSerializer):

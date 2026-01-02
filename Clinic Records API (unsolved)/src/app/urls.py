@@ -4,10 +4,10 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
 
 router = DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'patients', views.PatientViewSet)
-router.register(r'medical-histories', views.MedicalHistoryViewSet)
-router.register(r'doctor-notes', views.DoctorNoteViewSet)
+router.register(r'users', views.UserViewSet, basename='user')
+router.register(r'patients', views.PatientViewSet, basename='patient')
+router.register(r'medical-histories', views.MedicalHistoryViewSet, basename='medical_history')
+router.register(r'doctor-notes', views.DoctorNoteViewSet, basename='doctor_note')
 
 urlpatterns = [
     path('', include(router.urls)),

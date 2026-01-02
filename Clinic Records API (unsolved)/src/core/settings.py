@@ -47,8 +47,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
-    'drf_yasg',
+    # 'drf_yasg',
     'django_filters',
+    'drf_spectacular',
     
     # Local
     'app',    
@@ -93,13 +94,38 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'clinic_db',
-        'USER': 'clinic_user',
-        'PASSWORD': 'clinic_pass',
-        'HOST': 'db',
+        'NAME': 'my_drf_db',
+        'USER': 'imran',
+        'PASSWORD': 'yourpassword',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
+# Source - https://stackoverflow.com/a/5421511
+# Posted by Alireza Savand, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-01-02, License - CC BY-SA 3.0
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'db_name',                      
+#         'USER': 'db_user',
+#         'PASSWORD': 'db_user_password',
+#         'HOST': '',
+#         'PORT': 'db_port_number',
+#     }
+# }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'clinic_db', # This is where you put the name of the db file. 
+#                  # If one doesn't exist, it will be created at migration time.
+#     }
+# }
 
 
 # Password validation
@@ -151,6 +177,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
 }
