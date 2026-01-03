@@ -1,7 +1,14 @@
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import path, include
 from rest_framework import permissions
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
+
+
+def script(request):
+    return redirect('swagger-ui')
+
 
 # from drf_yasg.views import get_schema_view
 # from drf_yasg import openapi
@@ -22,6 +29,8 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('app.urls')),
+
+    path('', script, name='home'),
 
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
 

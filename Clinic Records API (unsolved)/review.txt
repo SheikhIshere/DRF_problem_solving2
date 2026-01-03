@@ -1,0 +1,8 @@
+this is the worse code that i have seen in my life (2jan2026)
+
+user have relation ship with doctor, but patient have no relationship 
+with user, even in my last project i made migrate system so a patient
+user can become a doctor but now seeing full mess no migrate system
+no one know who is the doctor
+
+so as a worse code i will give : ☆☆☆☆

@@ -4,6 +4,8 @@ from django.core.validators import RegexValidator
 
 
 class Patient(models.Model):
+    # FIX: adding patient user relationship
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     GENDER_CHOICES = [
         ('M', 'Male'),
         ('F', 'Female'),

@@ -89,4 +89,6 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             first_name=validated_data.get('first_name', ''),
             last_name=validated_data.get('last_name', '')
         )
+        # from .models import Patient
+        Patient.objects.create(user=user, first_name=validated_data.get('first_name', ''), last_name=validated_data.get('last_name', ''))
         return user
